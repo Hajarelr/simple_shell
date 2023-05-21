@@ -1,6 +1,6 @@
 #include "main.h"
 void execmd(char **argv);
-/*
+/**
  * main - main funtion
  * @argc: array;
  * @argv: vector;
@@ -19,22 +19,23 @@ int main(int argc, char **argv)
 	int i;
 	(void)argc;
 
-	printf("%s", prom);
-	nchars_r = getline(&comd, &n, stdin);
-	copy_comd = malloc(sizeof(char) * nchars_r);
-	if (copy_comd == NULL)
+	while (1)
 	{
-		perror("tsh: memory allocation error");
-		return (-1);
-	}
-	strcpy(copy_comd, comd);
-	if (nchars_r == -1)
-	{
-		printf("Exiting shell ...\n");
-		return (-1);
-	}
-	else
-	{
+		printf("%s", prom);
+		nchars_r = getline(&comd, &n, stdin);
+		copy_comd = malloc(sizeof(char) * nchars_r);
+		if (nchars_r == -1)
+		{
+			printf("Exiting shell ...\n");
+			return (-1);
+		}
+		copy_comd = malloc(sizeof(char) * nchars_r);
+		if (copy_comd == NULL)
+		{
+			perror("tsh: memory allocation error");
+			return (-1);
+		}
+		strcpy(copy_comd, comd);
 		token = strtok(comd, del);
 		while (token != NULL)
 		{
@@ -52,8 +53,8 @@ int main(int argc, char **argv)
 		}
 		argv[i] = NULL;
 		execmd(argv);
-		free(comd);
-		free(copy_comd);
 	}
+	free(copy_comd);
+	free(comd);
 	return (0);
 }
