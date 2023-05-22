@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 		copy_comd = malloc(sizeof(char) * nchars_r);
 		if (nchars_r == -1)
 		{
-			printf("Exiting shell ...\n");
+			printf("Exit shell\n");
 			return (-1);
 		}
 		copy_comd = malloc(sizeof(char) * nchars_r);
