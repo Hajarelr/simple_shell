@@ -1,5 +1,4 @@
 #include "main.h"
-void execmd(char **argv);
 /**
  * main - main funtion
  * @argc: array;
