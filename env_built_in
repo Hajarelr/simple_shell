@@ -19,4 +19,3 @@ write(STDOUT_FILENO, &b, 1);
 (void)n;
 return (0);
 }
-

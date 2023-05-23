@@ -7,5 +7,5 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 char *PATH_c(char *c);
-int env(char **n, char __attribute__((__unused__)) **m)
+int env(char **n, char __attribute__((__unused__)) **m);
 #endif
