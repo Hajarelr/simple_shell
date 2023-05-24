@@ -7,7 +7,6 @@
  */
 int main(int argc, char **argv)
 {
-	char *prom = "$ ";
 	char *comd = NULL;
 	char *copy_comd = NULL;
 	size_t n = 0;
@@ -16,11 +15,13 @@ int main(int argc, char **argv)
 	int n_token = 0;
 	char *token;
 	int i;
+	char **t;
 	(void)argc;
+	(void)argv;
 
 	while (1)
 	{
-		printf("%s", prom);
+		prompt();
 		nchars_r = getline(&comd, &n, stdin);
 		copy_comd = malloc(sizeof(char) * nchars_r);
 		if (nchars_r == -1)
@@ -42,16 +43,16 @@ int main(int argc, char **argv)
 			token = strtok(NULL, del);
 		}
 		n_token++;
-		argv = malloc(sizeof(char *) * n_token);
+		t = malloc(sizeof(char *) * n_token);
 		token = strtok(copy_comd, del);
 		for (i = 0; token != NULL; i++)
 		{
-			argv[i] = malloc(sizeof(char *) * strlen(token));
-			strcpy(argv[i], token);
+			t[i] = malloc(sizeof(char *) * strlen(token));
+			strcpy(t[i], token);
 			token = strtok(NULL, del);
 		}
-		argv[i] = NULL;
-		execmd(argv);
+		t[i] = NULL;
+		execmd(t);
 	}
 	free(copy_comd);
 	free(comd);

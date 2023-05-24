@@ -14,6 +14,8 @@ int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 void free_buffers(char **buf);
 void exit_builtin(char **n, char *m);
+void prompt(void);
+void execmd(char **argv);
 struct builtin
 {
 char *env;
