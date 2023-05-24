@@ -16,6 +16,7 @@ void free_buffers(char **buf);
 void exit_builtin(char **n, char *m);
 void prompt(void);
 void execmd(char **argv);
+int Ctrl_D(ssize_t nchars_r);
 struct builtin
 {
 char *env;
