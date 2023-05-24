@@ -14,6 +14,7 @@ void execmd(char **argv)
 		c = argv[0];
 		ac = PATH_c(c);
 		if (execve(ac, argv, NULL) == -1)
-			perror("Eroor");
+			perror("No such file or directory");
+
 	}
 }

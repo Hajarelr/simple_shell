@@ -53,8 +53,10 @@ int main(int argc, char **argv)
 		}
 		t[i] = NULL;
 		execmd(t);
+		free(copy_comd);
+		free(comd);
+		free(t);
 	}
-	free(copy_comd);
-	free(comd);
+
 	return (0);
 }
