@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 			strcpy(t[i], token);
 			token = strtok(NULL, del);
 		}
-		t[i] = NULL;
+		*(t + i)= NULL;
 		execmd(t);
 		free(copy_comd);
 		free(comd);
