@@ -1,21 +1,21 @@
 #include "main.h"
 /**
- * handle_builtin - Function that handles exection of built_in env & exit
- * @command: tokenized commands
- * @line: Input
- * Return: 1 if it:s executed otherwise 0
+ * handler_builtin - Function that handles exection of built_in env & exit
+ * @n: Input 1
+ * @m: Input 2
+ * Return: 1 if it's executed otherwise 0
  */
-int handle_builtin(char **command, char *line)
+int handler_builtin(char **n, char *m)
 {
 struct builtin builtin = {"env", "exit"};
-if (_strcmp(*command, builtin.env) == 0)
+if (_strcmp(*n, builtin.env) == 0)
 {
-print_env();
+env_builtin();
 return (1);
 }
-else if (_strcmp(*command, builtin.exit) == 0)
+else if (_strcmp(*n, builtin.exit) == 0)
 {
-exit_command(command, line);
+exit_builtin(n, m);
 return (1);
 }
 return (0);
