@@ -1,7 +1,7 @@
 #include "main.h"
 /**
 * prompt - function to display $
-Return: void
+* Return: void
 */
 void prompt(void)
 {
