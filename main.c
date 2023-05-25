@@ -46,7 +46,5 @@ token = strtok(NULL, del);
 argv[i] = NULL;
 execmd(argv);
 }
-free(copy_comd);
-free(comd);
 return (0);
 }
